@@ -1,10 +1,6 @@
 # Cline AI Project Jumpstart Guide
 
 <p align="center">
-  <img src="https://github.com/username/cline-project-guide/assets/placeholder-image.png" alt="Cline AI Project Guide" width="600">
-</p>
-
-<p align="center">
   <strong>Build and ship web applications in days instead of months with AI-powered development</strong>
 </p>
 
@@ -157,4 +153,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-<p align="center">Made with ❤️ and AI</p>
+<p align="center">Made with ❤️ </p>
