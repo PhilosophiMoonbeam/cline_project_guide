@@ -125,14 +125,23 @@ cd your-repo-name</code></pre>
                 <li>Create a <code>cline_docs</code> folder in your project root:
                     <pre><code>mkdir cline_docs</code></pre>
                 </li>
-                <li>Create a <code>projectBrief.md</code> file in the <code>cline_docs</code> folder:
-                    <pre><code>touch cline_docs/projectBrief.md</code></pre>
+                <li>Create the following core files in the <code>cline_docs</code> folder:
+                    <ul>
+                        <li><code>projectBrief.md</code> - Foundation document that defines core requirements and goals</li>
+                        <li><code>productContext.md</code> - Why this project exists and how it should work</li>
+                        <li><code>activeContext.md</code> - Current work focus and recent changes</li>
+                        <li><code>systemPatterns.md</code> - System architecture and key technical decisions</li>
+                        <li><code>techContext.md</code> - Technologies used and technical constraints</li>
+                        <li><code>progress.md</code> - What works and what's left to build</li>
+                    </ul>
+                    <pre><code>touch cline_docs/projectBrief.md cline_docs/productContext.md cline_docs/activeContext.md cline_docs/systemPatterns.md cline_docs/techContext.md cline_docs/progress.md</code></pre>
                 </li>
-                <li>Add your project brief to the file (template below)</li>
+                <li>Add your project brief to the projectBrief.md file (template below)</li>
                 <li>Create a <code>.clinerules</code> file in your project root:
                     <pre><code>touch .clinerules</code></pre>
                 </li>
                 <li>Add the tech stack and project structure rules (template below)</li>
+                <li>Create a <code>vs_code_custom_instructions.md</code> file in your project root for Cline's Memory Bank custom instructions</li>
                 <li>Initialize the memory bank by telling Cline:
                     <pre><code>initialize memory bank</code></pre>
                 </li>
@@ -756,6 +765,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=
                 <li><a href="https://docs.cline.bot/" target="_blank">Cline Documentation</a></li>
                 <li><a href="https://docs.cline.bot/improving-your-prompting-skills" target="_blank">Prompt Engineering Best Practices</a></li>
                 <li><a href="https://docs.cline.bot/improving-your-prompting-skills/custom-instructions-library/cline-memory-bank" target="_blank">Memory Bank Setup Guide</a></li>
+                <li><a href="vs_code_custom_instructions.md" target="_blank">Cline Memory Bank Custom Instructions</a></li>
             </ul>
 
             <div class="checklist">
