@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Cline Project Guide</title>
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Comprehensive Cline Project Guide</h1>
+            <p>A complete framework for developing applications with Cline and modern web technologies</p>
+        </div>
+    </header>
+
+    <nav id="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#development-environment">Development Environment</a></li>
+                <li><a href="#cline-memory-bank">Cline Memory Bank</a></li>
+                <li><a href="#project-structure">Project Structure</a></li>
+                <li><a href="#tech-stack">Tech Stack</a></li>
+                <li><a href="#development-workflow">Development Workflow</a></li>
+                <li><a href="#database-management">Database Management</a></li>
+                <li><a href="#styling">Styling</a></li>
+                <li><a href="#deployment">Deployment</a></li>
+                <li><a href="#git-github">Git & GitHub</a></li>
+                <li><a href="#environment-variables">Environment Variables</a></li>
+                <li><a href="#troubleshooting">Troubleshooting</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>This guide serves as a comprehensive template for developing and shipping applications using the Cline AI-powered development environment in VS Code, along with the recommended tech stack. By following this guide, you'll be able to:</p>
+            <ul>
+                <li>Set up an optimal development environment</li>
+                <li>Configure Cline as your AI development co-pilot</li>
+                <li>Structure your project for maintainability and scalability</li>
+                <li>Develop features efficiently with Next.js, Tailwind, and Supabase</li>
+                <li>Deploy your application to production with Vercel</li>
+                <li>Maintain best practices for version control with Git and GitHub</li>
+            </ul>
+            <p>The stack recommended in this guide is specifically chosen for:</p>
+            <ul>
+                <li>Production-readiness from day one</li>
+                <li>Seamless integration between all components</li>
+                <li>Generous free tiers for development and small-scale production</li>
+                <li>Optimization for AI-first development workflows</li>
+            </ul>
+        </section>
+
+        <section id="development-environment">
+            <h2>Development Environment Setup</h2>
+            
+            <h3>Essential Tools Installation</h3>
+            <div class="tool-card">
+                <h4><i class="fas fa-code"></i> VS Code</h4>
+                <p>Download and install from <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a></p>
+                <p>Recommended extensions:</p>
+                <ul>
+                    <li>ESLint</li>
+                    <li>Prettier</li>
+                    <li>Tailwind CSS IntelliSense</li>
+                    <li>GitHub Copilot (optional but complementary to Cline)</li>
+                </ul>
+            </div>
+
+            <div class="tool-card">
+                <h4><i class="fab fa-node-js"></i> Node.js and npm</h4>
+                <p>Install the latest LTS version from <a href="https://nodejs.org/" target="_blank">nodejs.org</a></p>
+                <p>Verify installation:</p>
+                <pre><code>node --version
+npm --version</code></pre>
+            </div>
+
+            <div class="tool-card">
+                <h4><i class="fab fa-git-alt"></i> Git</h4>
+                <p>Install from <a href="https://git-scm.com/" target="_blank">git-scm.com</a></p>
+                <p>Configure your identity:</p>
+                <pre><code>git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"</code></pre>
+            </div>
+
+            <div class="tool-card">
+                <h4><i class="fas fa-robot"></i> Cline Extension for VS Code</h4>
+                <p>Install the Cline extension from the VS Code marketplace</p>
+                <p>Authenticate and set up your account as prompted</p>
+            </div>
+
+            <div class="tool-card">
+                <h4><i class="fab fa-github"></i> GitHub Account</h4>
+                <p>Create or log in to your GitHub account</p>
+                <p>Set up SSH keys for secure authentication (recommended)</p>
+            </div>
+
+            <h3>Creating a New Project Repository</h3>
+            <ol>
+                <li>Create a new repository on GitHub
+                    <ul>
+                        <li>Choose a descriptive name</li>
+                        <li>Initialize with a README.md</li>
+                        <li>Add a .gitignore file for Node.js</li>
+                    </ul>
+                </li>
+                <li>Clone the repository locally:
+                    <pre><code>git clone https://github.com/yourusername/your-repo-name.git
+cd your-repo-name</code></pre>
+                </li>
+            </ol>
+        </section>
+
+        <section id="cline-memory-bank">
+            <h2>Cline Memory Bank Configuration</h2>
+            <p>The Memory Bank is Cline's way of understanding your project context, enabling it to provide more relevant and accurate assistance.</p>
+
+            <h3>Setting Up the Memory Bank</h3>
+            <ol>
+                <li>Create a <code>cline_docs</code> folder in your project root:
+                    <pre><code>mkdir cline_docs</code></pre>
+                </li>
+                <li>Create a <code>projectBrief.md</code> file in the <code>cline_docs</code> folder:
+                    <pre><code>touch cline_docs/projectBrief.md</code></pre>
+                </li>
+                <li>Add your project brief to the file (template below)</li>
+                <li>Create a <code>.clinerules</code> file in your project root:
+                    <pre><code>touch .clinerules</code></pre>
+                </li>
+                <li>Add the tech stack and project structure rules (template below)</li>
+                <li>Initialize the memory bank by telling Cline:
+                    <pre><code>initialize memory bank</code></pre>
+                </li>
+            </ol>
+
+            <h3>Project Brief Template</h3>
+            <pre><code># Project Brief
+
+## Overview
+Building a [type of application] that will [main purpose].
+
+## Core Features
+- Feature 1
+- Feature 2
+- Feature 3
+
+## Target Users
+[Describe who will use your application]
+
+## Technical Preferences (optional)
+- Any specific technologies you want to use
+- Any specific requirements or constraints</code></pre>
+
+            <h3>.clinerules Template</h3>
+            <pre><code># Project Configuration
+
+## Tech Stack
+- Next.js 14+ with App Router
+- Tailwind CSS for styling
+- Supabase for backend
+- Vercel for deployment
+- GitHub for version control
+
+## Project Structure
+/src
+  /app         # Next.js App Router pages
+  /components  # React components
+  /lib         # Utility functions
+  /types       # TypeScript types
+/supabase
+  /migrations  # SQL migration files
+  /seed        # Seed data files
+/public        # Static assets
+
+## Database Migrations
+SQL files in /supabase/migrations should:
+- Use sequential numbering: 001, 002, etc.
+- Include descriptive names
+- Be reviewed by Cline before execution
+
+Example: 001_create_users_table.sql
+
+## Development Workflow
+- Cline helps write and review code changes
+- Vercel automatically deploys from main branch
+- Database migrations reviewed by Cline before execution
+
+## Security
+DO NOT read or modify:
+- .env files
+- **/config/secrets.*
+- Any file containing API keys or credentials</code></pre>
+        </section>
+
+        <section id="project-structure">
+            <h2>Project Structure and Organization</h2>
+
+            <h3>Scaffold Your Project with Cline</h3>
+            <p>After setting up the Memory Bank, ask Cline to scaffold your project:</p>
+            <pre><code>Please scaffold a new Next.js project with Tailwind CSS and Supabase integration based on my project brief.</code></pre>
+
+            <h3>Recommended Project Structure</h3>
+            <pre><code>your-project/
+├── .git/
+├── .github/
+│   └── workflows/                # CI/CD workflows
+├── cline_docs/                   # Cline Memory Bank
+│   └── projectBrief.md
+├── node_modules/
+├── public/                       # Static assets
+├── src/
+│   ├── app/                      # Next.js App Router
+│   │   ├── api/                  # API routes
+│   │   ├── (auth)/               # Auth-related pages
+│   │   │   ├── login/
+│   │   │   ├── register/
+│   │   │   └── layout.tsx
+│   │   ├── dashboard/            # Dashboard pages
+│   │   ├── layout.tsx            # Root layout
+│   │   └── page.tsx              # Home page
+│   ├── components/               # React components
+│   │   ├── ui/                   # UI components
+│   │   ├── forms/                # Form components
+│   │   └── layouts/              # Layout components
+│   ├── lib/                      # Utility functions
+│   │   ├── supabase/             # Supabase client
+│   │   ├── utils/                # Helper functions
+│   │   └── constants/            # Constants
+│   └── types/                    # TypeScript types
+├── supabase/
+│   ├── migrations/               # Database migrations
+│   └── seed/                     # Seed data
+├── .clinerules                   # Cline rules
+├── .env.local                    # Local environment variables
+├── .env.example                  # Example environment variables
+├── .eslintrc.json                # ESLint configuration
+├── .gitignore                    # Git ignore rules
+├── next.config.js                # Next.js configuration
+├── package.json                  # Project dependencies
+├── postcss.config.js             # PostCSS configuration
+├── README.md                     # Project documentation
+├── tailwind.config.js            # Tailwind configuration
+└── tsconfig.json                 # TypeScript configuration</code></pre>
+        </section>
+
+        <section id="tech-stack">
+            <h2>Tech Stack Overview</h2>
+
+            <div class="tech-card">
+                <h3><i class="fab fa-react"></i> Next.js</h3>
+                <p>Next.js is a React framework that enables server-side rendering, static site generation, and API routes.</p>
+                <p>Key features you'll use:</p>
+                <ul>
+                    <li><strong>App Router</strong>: The new routing system with nested layouts</li>
+                    <li><strong>Server Components</strong>: React components that render on the server</li>
+                    <li><strong>API Routes</strong>: Serverless functions for backend logic</li>
+                    <li><strong>Image Optimization</strong>: Automatic image optimization</li>
+                    <li><strong>Font Optimization</strong>: Automatic font optimization</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h3><i class="fab fa-css3"></i> Tailwind CSS</h3>
+                <p>Tailwind is a utility-first CSS framework that allows you to build custom designs without leaving your HTML.</p>
+                <p>Key advantages:</p>
+                <ul>
+                    <li>No need to write custom CSS</li>
+                    <li>Consistent design system</li>
+                    <li>Responsive designs with minimal effort</li>
+                    <li>Dark mode support out of the box</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h3><i class="fas fa-database"></i> Supabase</h3>
+                <p>Supabase is an open-source Firebase alternative providing database, authentication, storage, and realtime subscriptions.</p>
+                <p>Key features you'll use:</p>
+                <ul>
+                    <li><strong>PostgreSQL Database</strong>: Powerful, open-source SQL database</li>
+                    <li><strong>Authentication</strong>: Email/password, social, and passwordless auth</li>
+                    <li><strong>Storage</strong>: File storage with security rules</li>
+                    <li><strong>Edge Functions</strong>: Serverless functions for backend logic</li>
+                    <li><strong>Realtime</strong>: Subscribe to database changes</li>
+                </ul>
+            </div>
+
+            <div class="tech-card">
+                <h3><i class="fas fa-rocket"></i> Vercel</h3>
+                <p>Vercel is a deployment platform optimized for Next.js applications.</p>
+                <p>Key features:</p>
+                <ul>
+                    <li>One-click deployments</li>
+                    <li>Preview deployments for pull requests</li>
+                    <li>Custom domains and SSL</li>
+                    <li>Edge functions for global performance</li>
+                    <li>Analytics and monitoring</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="development-workflow">
+            <h2>Development Workflow</h2>
+
+            <h3>Setting Up a New Project</h3>
+            <ol>
+                <li><strong>Initialize project with Next.js:</strong>
+                    <pre><code>npx create-next-app@latest my-app --typescript --tailwind --eslint
+cd my-app</code></pre>
+                </li>
+                <li><strong>Set up Supabase client:</strong>
+                    <pre><code>npm install @supabase/supabase-js</code></pre>
+                </li>
+                <li><strong>Create Supabase client helper in <code>src/lib/supabase/client.ts</code>:</strong>
+                    <pre><code>import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);</code></pre>
+                </li>
+            </ol>
+
+            <h3>Daily Development Process</h3>
+            <ol>
+                <li><strong>Pull latest changes:</strong>
+                    <pre><code>git pull origin main</code></pre>
+                </li>
+                <li><strong>Create or checkout a feature branch:</strong>
+                    <pre><code>git checkout -b feature/new-feature</code></pre>
+                </li>
+                <li><strong>Ask Cline to help implement a feature:</strong>
+                    <pre><code>Help me implement a user authentication system using Supabase and Next.js App Router.</code></pre>
+                </li>
+                <li><strong>Test your implementation:</strong>
+                    <pre><code>npm run dev</code></pre>
+                </li>
+                <li><strong>Commit your changes:</strong>
+                    <pre><code>git add .
+git commit -m "Add user authentication system"</code></pre>
+                </li>
+                <li><strong>Push your changes:</strong>
+                    <pre><code>git push origin feature/new-feature</code></pre>
+                </li>
+                <li><strong>Create a pull request on GitHub</strong></li>
+                <li><strong>After approval, merge to main:</strong>
+                    <pre><code>git checkout main
+git pull origin main
+git merge feature/new-feature
+git push origin main</code></pre>
+                </li>
+            </ol>
+
+            <h3>Leveraging Cline Effectively</h3>
+            <ul>
+                <li><strong>Be specific in your requests:</strong> "Help me create a responsive navigation bar with mobile menu" is better than "Help me with the navbar"</li>
+                <li><strong>Share context:</strong> "This will be used in our e-commerce app for product categories"</li>
+                <li><strong>Ask for explanations:</strong> "Can you explain how this authentication flow works?"</li>
+                <li><strong>Request reviews:</strong> "Can you review this code and suggest improvements?"</li>
+                <li><strong>Get unstuck:</strong> "I'm getting this error: [error message]. How can I fix it?"</li>
+            </ul>
+        </section>
+
+        <section id="database-management">
+            <h2>Database Management with Supabase</h2>
+
+            <h3>Setting Up Supabase</h3>
+            <ol>
+                <li>Create a new project on <a href="https://supabase.com/" target="_blank">supabase.com</a></li>
+                <li>Note your project URL and anon key</li>
+                <li>Add them to your <code>.env.local</code> file:
+                    <pre><code>NEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key</code></pre>
+                </li>
+            </ol>
+
+            <h3>Database Migrations</h3>
+            <p>Store your migrations in the <code>/supabase/migrations</code> folder:</p>
+            <pre><code>-- /supabase/migrations/001_create_users_table.sql
+CREATE TABLE public.profiles (
+  id UUID REFERENCES auth.users ON DELETE CASCADE,
+  username TEXT UNIQUE,
+  avatar_url TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  PRIMARY KEY (id)
+);
+
+-- Enable Row Level Security
+ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
+
+-- Define RLS policies
+CREATE POLICY "Public profiles are viewable by everyone"
+  ON public.profiles
+  FOR SELECT
+  USING (true);
+
+CREATE POLICY "Users can update their own profile"
+  ON public.profiles
+  FOR UPDATE
+  USING (auth.uid() = id);</code></pre>
+
+            <h3>Applying Migrations</h3>
+            <p>Use the Supabase CLI to apply migrations:</p>
+            <ol>
+                <li>Install the CLI:
+                    <pre><code>npm install -g supabase</code></pre>
+                </li>
+                <li>Link to your project:
+                    <pre><code>supabase link --project-ref your-project-id</code></pre>
+                </li>
+                <li>Apply migrations:
+                    <pre><code>supabase db push</code></pre>
+                </li>
+            </ol>
+
+            <h3>Using Supabase in Next.js</h3>
+            <p>Example of fetching data:</p>
+            <pre><code>// src/app/profiles/page.tsx
+import { supabase } from '@/lib/supabase/client';
+
+export default async function ProfilesPage() {
+  const { data, error } = await supabase
+    .from('profiles')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error(error);
+    return &lt;div&gt;Error loading profiles&lt;/div&gt;;
+  }
+
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Profiles&lt;/h1&gt;
+      &lt;ul&gt;
+        {data.map((profile) => (
+          &lt;li key={profile.id}&gt;{profile.username}&lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+        </section>
+
+        <section id="styling">
+            <h2>Styling with Tailwind CSS</h2>
+
+            <h3>Key Tailwind Concepts</h3>
+            <ol>
+                <li><strong>Utility Classes</strong>: Use classes like <code>flex</code>, <code>p-4</code>, <code>text-lg</code> directly in HTML</li>
+                <li><strong>Responsive Design</strong>: Use prefixes like <code>sm:</code>, <code>md:</code>, <code>lg:</code> for responsive layouts</li>
+                <li><strong>Component Extraction</strong>: Use Tailwind with React components for reusability</li>
+            </ol>
+
+            <h3>Common Tailwind Patterns</h3>
+            <div class="code-example">
+                <h4>Responsive Grid:</h4>
+                <pre><code>&lt;div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"&gt;
+  {items.map(item => (
+    &lt;div key={item.id} className="bg-white rounded-lg shadow p-4"&gt;
+      {/* Item content */}
+    &lt;/div&gt;
+  ))}
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-example">
+                <h4>Card Component:</h4>
+                <pre><code>// src/components/ui/Card.tsx
+export function Card({ title, children }) {
+  return (
+    &lt;div className="bg-white rounded-lg shadow-md overflow-hidden"&gt;
+      &lt;div className="px-6 py-4"&gt;
+        &lt;h3 className="font-bold text-xl mb-2"&gt;{title}&lt;/h3&gt;
+        &lt;div&gt;{children}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+            </div>
+
+            <div class="code-example">
+                <h4>Custom Theme:</h4>
+                <p>Extend Tailwind's default theme in <code>tailwind.config.js</code>:</p>
+                <pre><code>/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './src/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          // ... other shades
+          600: '#0284c7',
+          700: '#0369a1',
+        },
+        // Add more custom colors
+      },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [],
+}</code></pre>
+            </div>
+        </section>
+
+        <section id="deployment">
+            <h2>Deployment with Vercel</h2>
+
+            <h3>Setting Up Vercel</h3>
+            <ol>
+                <li>Create an account on <a href="https://vercel.com/" target="_blank">vercel.com</a></li>
+                <li>Install the Vercel CLI:
+                    <pre><code>npm install -g vercel</code></pre>
+                </li>
+                <li>Login to Vercel:
+                    <pre><code>vercel login</code></pre>
+                </li>
+            </ol>
+
+            <h3>Deploying Your Application</h3>
+            <div class="deployment-options">
+                <div class="option">
+                    <h4>Option 1: GitHub Integration (Recommended)</h4>
+                    <ol>
+                        <li>Connect your GitHub account to Vercel</li>
+                        <li>Import your repository</li>
+                        <li>Configure project settings:
+                            <ul>
+                                <li>Framework preset: Next.js</li>
+                                <li>Build command: <code>next build</code></li>
+                                <li>Output directory: <code>.next</code></li>
+                                <li>Environment variables: Add all from <code>.env.local</code></li>
+                            </ul>
+                        </li>
+                        <li>Deploy</li>
+                    </ol>
+                </div>
+
+                <div class="option">
+                    <h4>Option 2: CLI Deployment</h4>
+                    <pre><code>vercel</code></pre>
+                </div>
+            </div>
+
+            <h3>Custom Domains</h3>
+            <ol>
+                <li>Go to your project dashboard on Vercel</li>
+                <li>Navigate to Settings > Domains</li>
+                <li>Add your custom domain</li>
+                <li>Follow the DNS configuration instructions</li>
+            </ol>
+
+            <h3>Environment Variables</h3>
+            <ol>
+                <li>Go to your project dashboard on Vercel</li>
+                <li>Navigate to Settings > Environment Variables</li>
+                <li>Add all environment variables from your <code>.env.local</code> file</li>
+                <li>Redeploy your application</li>
+            </ol>
+        </section>
+
+        <section id="git-github">
+            <h2>Git and GitHub Best Practices</h2>
+
+            <h3>Daily Git Workflow</h3>
+            <pre><code># Start of day: Get latest changes
+git pull origin main
+
+# Create a feature branch
+git checkout -b feature/new-feature
+
+# Make changes...
+
+# Stage changes
+git add .
+
+# Commit changes
+git commit -m "Descriptive message about changes"
+
+# Push to GitHub
+git push origin feature/new-feature
+
+# Create a pull request on GitHub
+
+# After approval, merge to main
+git checkout main
+git pull origin main
+git merge feature/new-feature
+git push origin main</code></pre>
+
+            <h3>Commit Message Guidelines</h3>
+            <p>Follow the conventional commit format:</p>
+            <pre><code>type(scope): description
+
+[optional body]
+
+[optional footer]</code></pre>
+            <p>Types:</p>
+            <ul>
+                <li><code>feat</code>: New feature</li>
+                <li><code>fix</code>: Bug fix</li>
+                <li><code>docs</code>: Documentation</li>
+                <li><code>style</code>: Formatting</li>
+                <li><code>refactor</code>: Code restructuring</li>
+                <li><code>test</code>: Tests</li>
+                <li><code>chore</code>: Maintenance</li>
+            </ul>
+            <p>Examples:</p>
+            <pre><code>feat(auth): add login and registration forms
+
+fix(navbar): resolve mobile menu display issue
+
+docs: update README with setup instructions</code></pre>
+
+            <h3>GitHub Pull Request Process</h3>
+            <ol>
+                <li>Create a feature branch</li>
+                <li>Make changes and commit</li>
+                <li>Push to GitHub</li>
+                <li>Create a pull request</li>
+                <li>Add a description of changes</li>
+                <li>Request reviews</li>
+                <li>Address feedback</li>
+                <li>Merge when approved</li>
+            </ol>
+        </section>
+
+        <section id="environment-variables">
+            <h2>Environment Variables and Security</h2>
+
+            <h3>Local Environment Setup</h3>
+            <ol>
+                <li>Create a <code>.env.local</code> file in your project root (not committed to Git):
+                    <pre><code>NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+
+# Add other environment variables here</code></pre>
+                </li>
+                <li>Create a <code>.env.example</code> file with the same structure but no values:
+                    <pre><code>NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+
+# Add other environment variables here</code></pre>
+                </li>
+            </ol>
+
+            <h3>Security Best Practices</h3>
+            <ol>
+                <li>Never commit <code>.env.local</code> or any file containing secrets</li>
+                <li>Add <code>.env.local</code> to your <code>.gitignore</code></li>
+                <li>Use environment variables for all secrets</li>
+                <li>Prefix client-side variables with <code>NEXT_PUBLIC_</code></li>
+                <li>Server-side variables (not prefixed with <code>NEXT_PUBLIC_</code>) are only accessible in:
+                    <ul>
+                        <li>Server Components</li>
+                        <li>API Routes</li>
+                        <li><code>getServerSideProps</code></li>
+                        <li>Edge functions</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>Secret Management</h3>
+            <ol>
+                <li>Store secrets in <code>.env.local</code> for development</li>
+                <li>Add them to Vercel project settings for production</li>
+                <li>Rotate secrets regularly</li>
+                <li>Use the least privileged access possible</li>
+            </ol>
+        </section>
+
+        <section id="troubleshooting">
+            <h2>Troubleshooting and Getting Help</h2>
+
+            <h3>Common Issues and Solutions</h3>
+            <div class="issue-card">
+                <h4>Next.js Build Errors</h4>
+                <ul>
+                    <li>Check for TypeScript errors</li>
+                    <li>Verify all imports are correct</li>
+                    <li>Ensure all required environment variables are set</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h4>Supabase Connection Issues</h4>
+                <ul>
+                    <li>Verify your Supabase URL and key</li>
+                    <li>Check if the table exists and has the correct schema</li>
+                    <li>Verify RLS policies allow the operation</li>
+                </ul>
+            </div>
+
+            <div class="issue-card">
+                <h4>Deployment Problems</h4>
+                <ul>
+                    <li>Check build logs on Vercel</li>
+                    <li>Verify all environment variables are set in Vercel</li>
+                    <li>Check for differences between local and production environments</li>
+                </ul>
+            </div>
+
+            <h3>Getting Help from Cline</h3>
+            <ul>
+                <li>Use <code>/help</code> in Cline chat for immediate assistance</li>
+                <li>Be specific about the error or issue you're facing</li>
+                <li>Share any error messages or logs</li>
+                <li>Explain what you've already tried</li>
+            </ul>
+
+            <h3>Additional Resources</h3>
+            <ul>
+                <li>Check <a href="https://docs.cline.bot/" target="_blank">Cline Documentation</a></li>
+                <li>Join the <a href="https://discord.gg/cline" target="_blank">Cline Discord Community</a></li>
+                <li>Search GitHub issues for common problems</li>
+                <li>Post questions on Stack Overflow with relevant tags</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h2>Resources and Learning Materials</h2>
+
+            <h3>Next.js and React</h3>
+            <ul>
+                <li><a href="https://nextjs.org/learn" target="_blank">Official Learn Next.js Course</a> - Interactive tutorial</li>
+                <li><a href="https://www.youtube.com/nextjs-modern" target="_blank">NextJS App Router: Modern Web Dev in 1 Hour</a> - Quick overview</li>
+                <li><a href="https://www.youtube.com/nextjs-real-world" target="_blank">Building Real-World Apps with Next.js</a> - Practical examples</li>
+            </ul>
+
+            <h3>Supabase</h3>
+            <ul>
+                <li><a href="https://www.udemy.com/supabase-scratch" target="_blank">Supabase From Scratch</a> - Comprehensive course</li>
+                <li><a href="https://supabase.com/docs/guides/getting-started" target="_blank">Official Quickstart Guides</a></li>
+                <li><a href="https://www.newline.co/courses/supabase-nextjs" target="_blank">Real-Time Apps with Next.js and Supabase</a></li>
+            </ul>
+
+            <h3>Tailwind CSS</h3>
+            <ul>
+                <li><a href="https://www.youtube.com/tailwind-2025" target="_blank">Tailwind CSS Tutorial for Beginners</a></li>
+                <li><a href="https://tailwindcss.com/docs" target="_blank">Official Tailwind Documentation</a></li>
+                <li>Interactive course at <a href="https://scrimba.com/learn/tailwind" target="_blank">Scrimba Tailwind CSS Course</a></li>
+            </ul>
+
+            <h3>AI-Assisted Development</h3>
+            <ul>
+                <li><a href="https://docs.cline.bot/" target="_blank">Cline Documentation</a></li>
+                <li><a href="https://docs.cline.bot/improving-your-prompting-skills" target="_blank">Prompt Engineering Best Practices</a></li>
+                <li><a href="https://docs.cline.bot/improving-your-prompting-skills/custom-instructions-library/cline-memory-bank" target="_blank">Memory Bank Setup Guide</a></li>
+            </ul>
+
+            <div class="checklist">
+                <h2>Quick Start Checklist</h2>
+                <ul>
+                    <li><input type="checkbox" id="check1"><label for="check1">Install VS Code and Cline</label></li>
+                    <li><input type="checkbox" id="check2"><label for="check2">Set up Node.js, npm, and Git</label></li>
+                    <li><input type="checkbox" id="check3"><label for="check3">Create GitHub repository</label></li>
+                    <li><input type="checkbox" id="check4"><label for="check4">Clone repository locally</label></li>
+                    <li><input type="checkbox" id="check5"><label for="check5">Set up Cline Memory Bank with project brief and rules</label></li>
+                    <li><input type="checkbox" id="check6"><label for="check6">Initialize Next.js project with Tailwind</label></li>
+                    <li><input type="checkbox" id="check7"><label for="check7">Set up Supabase project and client</label></li>
+                    <li><input type="checkbox" id="check8"><label for="check8">Create initial database schema</label></li>
+                    <li><input type="checkbox" id="check9"><label for="check9">Implement core features with Cline's assistance</label></li>
+                    <li><input type="checkbox" id="check10"><label for="check10">Deploy to Vercel</label></li>
+                    <li><input type="checkbox" id="check11"><label for="check11">Set up custom domain (optional)</label></li>
+                </ul>
+                <p>Remember to commit your changes frequently and leverage Cline as your AI co-pilot throughout the development process. Happy coding!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Comprehensive Cline Project Guide</p>
+            <p>A resource for developers using Cline AI and modern web technologies</p>
+            <p>&copy; 2025 - <a href="https://github.com/yourusername/cline-project-guide" target="_blank">GitHub Repository</a></p>
+        </div>
+    </footer>
+
+    <script src="src/scripts/main.js"></script>

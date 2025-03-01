@@ -1,0 +1,32 @@
+{
+  "name": "cline-project-guide",
+  "version": "1.0.0",
+  "description": "A comprehensive guide for developing applications using Cline as an AI development co-pilot",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cline",
+    "nextjs",
+    "tailwindcss",
+    "supabase",
+    "vercel",
+    "guide",
+    "documentation"
+  ],
+  "author": "Cline Project Guide Contributors",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/cline-project-guide.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/cline-project-guide/issues"
+  },
+  "homepage": "https://github.com/yourusername/cline-project-guide#readme"
+}
