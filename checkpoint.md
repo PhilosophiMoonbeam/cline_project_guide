@@ -28,7 +28,7 @@ Congratulations on setting up the Cline Project Guide! This document outlines wh
 1. **View the Guide**: Open `index.html` in your browser to see the complete guide.
 
 2. **Customize the Content**: Modify the guide to fit your specific project needs:
-   - Update the project brief in `cline_docs/projectBrief.md`
+   - Update the project brief in `memory_bank/projectBrief.md`
    - Adjust the tech stack in `.clinerules` if needed
    - Add or remove sections in `index.html`
 
