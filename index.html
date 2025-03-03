@@ -8,14 +8,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
+    <header id="site-header">
         <div class="container">
-            <h1>Comprehensive Cline Project Guide</h1>
-            <p>A complete framework for developing applications with Cline and modern web technologies</p>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Comprehensive Cline Project Guide</h1>
+                    <p>A complete framework for developing applications with Cline and modern web technologies</p>
+                </div>
+                <button id="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <nav id="main-nav">
+    <nav id="main-nav" class="nav-closed">
         <div class="container">
             <ul>
                 <li><a href="#introduction">Introduction</a></li>
