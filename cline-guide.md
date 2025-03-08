@@ -84,14 +84,14 @@ The Memory Bank is Cline's way of understanding your project context, enabling i
 
 ### Setting Up the Memory Bank
 
-1. Create a `cline_docs` folder in your project root:
+1. Create a `memory_bank` folder in your project root:
    ```bash
-   mkdir cline_docs
+   mkdir memory_bank
    ```
 
-2. Create a `projectBrief.md` file in the `cline_docs` folder:
+2. Create a `projectBrief.md` file in the `memory_bank` folder:
    ```bash
-   touch cline_docs/projectBrief.md
+   touch memory_bank/projectBrief.md
    ```
 
 3. Add your project brief to the file (template below)
@@ -189,7 +189,7 @@ your-project/
 ├── .git/
 ├── .github/
 │   └── workflows/                # CI/CD workflows
-├── cline_docs/                   # Cline Memory Bank
+├── memory_bank/                   # Cline Memory Bank
 │   └── projectBrief.md
 ├── node_modules/
 ├── public/                       # Static assets

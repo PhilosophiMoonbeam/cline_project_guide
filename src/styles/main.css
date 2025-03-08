@@ -61,21 +61,50 @@ code {
 }
 
 /* Header */
-header {
+#site-header {
   background-color: var(--primary-color);
   color: white;
   padding: 2rem 0;
   text-align: center;
 }
 
-header h1 {
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-text {
+  text-align: left;
+}
+
+#site-header h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
 
-header p {
+#site-header p {
   font-size: 1.2rem;
   opacity: 0.9;
+}
+
+/* Mobile Menu Toggle Button */
+#mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 200;
+}
+
+#mobile-menu-toggle .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: white;
+  transition: var(--transition);
 }
 
 /* Navigation */
@@ -85,6 +114,8 @@ header p {
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
 }
 
 #main-nav ul {
@@ -110,6 +141,11 @@ header p {
   background-color: var(--primary-color);
   color: white;
   text-decoration: none;
+}
+
+#main-nav a.active {
+  background-color: var(--primary-color);
+  color: white;
 }
 
 /* Main Content */
@@ -250,8 +286,33 @@ footer a {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  header h1 {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .header-text {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  #site-header h1 {
     font-size: 2rem;
+  }
+  
+  #mobile-menu-toggle {
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+  
+  #main-nav.nav-closed {
+    max-height: 0;
+  }
+  
+  #main-nav {
+    max-height: 500px;
   }
   
   #main-nav ul {
@@ -261,9 +322,29 @@ footer a {
   
   #main-nav li {
     margin: 0.25rem 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  #main-nav a {
+    display: block;
+    padding: 0.75rem 1rem;
   }
   
   section {
     padding: 1.5rem;
+  }
+  
+  /* Animation for hamburger to X */
+  #mobile-menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  #mobile-menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  #mobile-menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 }

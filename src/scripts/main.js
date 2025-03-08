@@ -1,7 +1,21 @@
 // Main JavaScript for Cline Project Guide
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
+    // Mobile menu toggle functionality
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+    
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+            // Toggle the active class on the button for the animation
+            this.classList.toggle('active');
+            
+            // Toggle the nav-closed class on the navigation
+            mainNav.classList.toggle('nav-closed');
+        });
+    }
+    
+    // Close mobile menu when a link is clicked
     const navLinks = document.querySelectorAll('#main-nav a');
     
     navLinks.forEach(link => {
@@ -10,6 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
+            
+            // Close the mobile menu if it's open
+            if (window.innerWidth <= 768) {
+                mainNav.classList.add('nav-closed');
+                if (mobileMenuToggle) {
+                    mobileMenuToggle.classList.remove('active');
+                }
+            }
             
             if (targetElement) {
                 // Get the height of the fixed navigation

@@ -8,14 +8,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
+    <header id="site-header">
         <div class="container">
-            <h1>Comprehensive Cline Project Guide</h1>
-            <p>A complete framework for developing applications with Cline and modern web technologies</p>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Comprehensive Cline Project Guide</h1>
+                    <p>A complete framework for developing applications with Cline and modern web technologies</p>
+                </div>
+                <button id="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <nav id="main-nav">
+    <nav id="main-nav" class="nav-closed">
         <div class="container">
             <ul>
                 <li><a href="#introduction">Introduction</a></li>
@@ -122,10 +131,10 @@ cd your-repo-name</code></pre>
 
             <h3>Setting Up the Memory Bank</h3>
             <ol>
-                <li>Create a <code>cline_docs</code> folder in your project root:
-                    <pre><code>mkdir cline_docs</code></pre>
+                <li>Create a <code>memory_bank</code> folder in your project root:
+                    <pre><code>mkdir memory_bank</code></pre>
                 </li>
-                <li>Create the following core files in the <code>cline_docs</code> folder:
+                <li>Create the following core files in the <code>memory_bank</code> folder:
                     <ul>
                         <li><code>projectBrief.md</code> - Foundation document that defines core requirements and goals</li>
                         <li><code>productContext.md</code> - Why this project exists and how it should work</li>
@@ -134,7 +143,7 @@ cd your-repo-name</code></pre>
                         <li><code>techContext.md</code> - Technologies used and technical constraints</li>
                         <li><code>progress.md</code> - What works and what's left to build</li>
                     </ul>
-                    <pre><code>touch cline_docs/projectBrief.md cline_docs/productContext.md cline_docs/activeContext.md cline_docs/systemPatterns.md cline_docs/techContext.md cline_docs/progress.md</code></pre>
+                    <pre><code>touch memory_bank/projectBrief.md memory_bank/productContext.md memory_bank/activeContext.md memory_bank/systemPatterns.md memory_bank/techContext.md memory_bank/progress.md</code></pre>
                 </li>
                 <li>Add your project brief to the projectBrief.md file (template below)</li>
                 <li>Create a <code>.clinerules</code> file in your project root:
@@ -143,7 +152,7 @@ cd your-repo-name</code></pre>
                 <li>Add the tech stack and project structure rules (template below)</li>
                 <li>Create a <code>vs_code_custom_instructions.md</code> file in your project root for Cline's Memory Bank custom instructions</li>
                 <li>Initialize the memory bank by telling Cline:
-                    <pre><code>initialize memory bank</code></pre>
+                    <pre><code>initialize memory_bank</code></pre>
                 </li>
             </ol>
 
@@ -218,7 +227,7 @@ DO NOT read or modify:
 ├── .git/
 ├── .github/
 │   └── workflows/                # CI/CD workflows
-├── cline_docs/                   # Cline Memory Bank
+├── memory_bank/                   # Cline Memory Bank
 │   └── projectBrief.md
 ├── node_modules/
 ├── public/                       # Static assets
